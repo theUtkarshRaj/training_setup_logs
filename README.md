@@ -2,6 +2,8 @@
 
 **Prototype implementation:** see [`logs_to_training/README.md`](logs_to_training/README.md) for the installable Python package (ingest → PII → complexity → tool checks → SFT/DPO JSONL, disjoint splits, `validate` CLI, hard-negative templates, synthetic hooks). Reviewer-oriented fixtures live in [`gold_examples/`](gold_examples/).
 
+**License:** [Apache-2.0](LICENSE) (matches `pyproject.toml`). **CI:** [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs `ruff` + `pytest` on pull requests to `main` (Python 3.10 and 3.12).
+
 ---
 
 This document describes the **problem space** for turning real usage logs into high-quality training data—after privacy-safe processing—so that fine-tuned or post-trained models improve on both **question answering** and **agentic** behavior.
