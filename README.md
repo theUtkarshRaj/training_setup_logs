@@ -4,6 +4,15 @@
 
 **License:** [Apache-2.0](LICENSE) (matches `pyproject.toml`). **CI:** [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs `ruff` + `pytest` on pull requests to `main` (Python 3.10 and 3.12).
 
+## Quick start
+
+```bash
+python -m pip install -e ".[dev]"
+pytest -q
+python -m ruff check logs_to_training tests
+python -m logs_to_training.cli validate --input logs_to_training/sample_data/sample_log.json --kind raw --known-tools fetch_agristack_data,weather_forecast
+```
+
 ---
 
 This document describes the **problem space** for turning real usage logs into high-quality training data—after privacy-safe processing—so that fine-tuned or post-trained models improve on both **question answering** and **agentic** behavior.
