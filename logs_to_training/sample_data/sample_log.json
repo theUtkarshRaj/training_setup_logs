@@ -1,0 +1,78 @@
+[
+  {
+    "session_id": "demo-agentic-001",
+    "persona": "You are OpenAgriNet assistant. Use tools for farmer facts and weather. Never invent government IDs or phone numbers.",
+    "user_question": "What is the 5-day rain outlook for my plot near Loha, Maharashtra? My phone is +91 9876543210 and Aadhaar 1234 5678 9012 for verification.",
+    "agent_turns": [
+      {
+        "kind": "response",
+        "timestamp": "2026-01-20T05:54:15.673313Z",
+        "model_name": "gemma-3-12b-it",
+        "provider_name": "vertex",
+        "finish_reason": "tool_call",
+        "run_id": "run_abc",
+        "usage": { "input_tokens": 11345, "output_tokens": 40 },
+        "parts": [
+          {
+            "part_kind": "tool-call",
+            "tool_name": "fetch_agristack_data",
+            "tool_call_id": "call_fetch_1",
+            "args": { "village_hint": "Loha", "district_hint": "Nanded" }
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-01-20T05:54:16.270192Z",
+        "model_name": "gemma-3-12b-it",
+        "provider_name": "vertex",
+        "parts": [
+          {
+            "part_kind": "tool-return",
+            "tool_name": "fetch_agristack_data",
+            "tool_call_id": "call_fetch_1",
+            "timestamp": "2026-01-20T05:54:16.270192Z",
+            "content": "Farmer Details:\n  Mobile: 87***2\n  Village: Loha\n  Locations:\n    Loha, Maharashtra, India (19.066, 77.174)\n  Crop last season: wheat"
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-01-20T05:54:17.100000Z",
+        "model_name": "gemma-3-12b-it",
+        "provider_name": "vertex",
+        "finish_reason": "tool_call",
+        "parts": [
+          {
+            "part_kind": "tool-call",
+            "tool_name": "weather_forecast",
+            "tool_call_id": "toolu_018HGFp98z1XxwTFN8VwjnX3",
+            "args": { "latitude": 19.066, "longitude": 77.174, "days": 5 }
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-01-20T05:54:17.800000Z",
+        "parts": [
+          {
+            "part_kind": "tool-return",
+            "tool_name": "weather_forecast",
+            "tool_call_id": "toolu_018HGFp98z1XxwTFN8VwjnX3",
+            "content": "5-day forecast: light showers possible day 2-3, max 32C, min 18C. No cyclone risk."
+          }
+        ]
+      }
+    ],
+    "bot_response": "For Loha (~19.07N, 77.17E), the next five days show a chance of light showers mid-week with highs near 32°C. No severe weather is indicated.",
+    "success": true
+  },
+  {
+    "session_id": "demo-qa-002",
+    "persona": "You answer briefly about Indian agricultural schemes.",
+    "user_question": "What is PM-KISAN in one sentence?",
+    "agent_turns": [],
+    "bot_response": "PM-KISAN is a central direct benefit transfer scheme providing income support to small and marginal farmer families.",
+    "success": true
+  }
+]

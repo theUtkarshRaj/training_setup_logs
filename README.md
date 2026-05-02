@@ -1,5 +1,9 @@
 # Problem Statement: From Production Logs to Safe, SOTA-Aligned Training Data
 
+**Prototype implementation:** see [`logs_to_training/README.md`](logs_to_training/README.md) for the installable Python package (ingest → PII → complexity → tool checks → SFT/DPO JSONL, disjoint splits, `validate` CLI, hard-negative templates, synthetic hooks). Reviewer-oriented fixtures live in [`gold_examples/`](gold_examples/).
+
+---
+
 This document describes the **problem space** for turning real usage logs into high-quality training data—after privacy-safe processing—so that fine-tuned or post-trained models improve on both **question answering** and **agentic** behavior.
 
 ---

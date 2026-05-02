@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logs-to-training"
+version = "0.1.0"
+description = "PII-safe log ingestion → trajectory tagging → LoRA SFT / DPO export for agentic setups"
+readme = "logs_to_training/README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "OpenAgriNet / DMP contributors" }]
+keywords = ["langfuse", "lora", "dpo", "agent", "pii", "trajectory"]
+dependencies = [
+    "pydantic>=2.5",
+]
+
+[project.optional-dependencies]
+presidio = [
+    "presidio-analyzer>=2.2.0",
+    "presidio-anonymizer>=2.2.0",
+]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+logs2train = "logs_to_training.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["logs_to_training*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,37 @@
+[
+  {
+    "session_id": "gold-ideal-agentic",
+    "persona": "You are OpenAgriNet. Always use tools for farmer facts and forecasts; never invent IDs.",
+    "user_question": "Give a 3-day temperature outlook for coordinates 19.07N, 77.17E.",
+    "agent_turns": [
+      {
+        "kind": "response",
+        "timestamp": "2026-02-01T10:00:00Z",
+        "model_name": "gemma-3-12b-it",
+        "finish_reason": "tool_call",
+        "parts": [
+          {
+            "part_kind": "tool-call",
+            "tool_name": "weather_forecast",
+            "tool_call_id": "call_w1",
+            "args": { "latitude": 19.07, "longitude": 77.17, "days": 3 }
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-02-01T10:00:01Z",
+        "parts": [
+          {
+            "part_kind": "tool-return",
+            "tool_name": "weather_forecast",
+            "tool_call_id": "call_w1",
+            "content": "3-day outlook: highs 30–32°C, lows 17–19°C, dry conditions."
+          }
+        ]
+      }
+    ],
+    "bot_response": "For 19.07N, 77.17E the next three days stay dry with highs around 31°C and lows near 18°C.",
+    "success": true
+  }
+]

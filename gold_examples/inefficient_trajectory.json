@@ -1,0 +1,61 @@
+[
+  {
+    "session_id": "gold-inefficient-tools",
+    "persona": "You are OpenAgriNet. Use the minimum tools needed; avoid duplicate fetches.",
+    "user_question": "What is the soil type for village code 452990?",
+    "agent_turns": [
+      {
+        "kind": "response",
+        "timestamp": "2026-02-02T09:00:00Z",
+        "finish_reason": "tool_call",
+        "parts": [
+          {
+            "part_kind": "tool-call",
+            "tool_name": "fetch_agristack_data",
+            "tool_call_id": "c1",
+            "args": { "village_code": "452990" }
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-02-02T09:00:01Z",
+        "parts": [
+          {
+            "part_kind": "tool-return",
+            "tool_name": "fetch_agristack_data",
+            "tool_call_id": "c1",
+            "content": "Soil: deep black cotton (vertisol), irrigation: canal + borewell mix."
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-02-02T09:00:02Z",
+        "finish_reason": "tool_call",
+        "parts": [
+          {
+            "part_kind": "tool-call",
+            "tool_name": "fetch_agristack_data",
+            "tool_call_id": "c2",
+            "args": { "village_code": "452990" }
+          }
+        ]
+      },
+      {
+        "kind": "response",
+        "timestamp": "2026-02-02T09:00:03Z",
+        "parts": [
+          {
+            "part_kind": "tool-return",
+            "tool_name": "fetch_agristack_data",
+            "tool_call_id": "c2",
+            "content": "Soil: deep black cotton (vertisol), irrigation: canal + borewell mix."
+          }
+        ]
+      }
+    ],
+    "bot_response": "Village 452990 maps to deep black cotton (vertisol) with mixed canal and borewell irrigation.",
+    "success": true
+  }
+]
